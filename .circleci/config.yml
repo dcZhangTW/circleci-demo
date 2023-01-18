@@ -25,7 +25,7 @@ jobs:
             git status
             node index.js
             git add .
-            git commit "new test.txt"
+            git commit -m "new test.txt"
             git push
 workflows:
   main:
