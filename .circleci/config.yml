@@ -1,3 +1,4 @@
+version: 2.1
 on-push-main: &on-push-main
   branches:
     only: /main/
