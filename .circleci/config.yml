@@ -1,3 +1,8 @@
+on-push-main: &on-push-main
+  branches:
+    only: /main/
+  tags:
+    ignore: /.*/
 
 executors: 
   docker-node-executor:
