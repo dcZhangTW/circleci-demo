@@ -1,0 +1,28 @@
+
+executors: 
+  docker-node-executor:
+    docker:
+      - image: cimg/node:lts
+jobs:
+  test-commit:
+    executor: docker-node-executor
+    steps:
+      - checkout
+      - run:
+        name: test git commit
+        command: |
+          node -v
+          npm install
+          git status
+          
+workflows:
+  jobs:
+      - update-approval:
+          name: Update approval
+          type: approval
+          filters: *on-push-main
+      - test-commit:
+          filters: *on-push-main
+          requires:
+            - Update approval
+          
