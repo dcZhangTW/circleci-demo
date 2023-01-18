@@ -22,6 +22,8 @@ jobs:
           command: |
             node -v
             npm install
+            git config --global user.email "dczhang@thoughtworks.com"
+            git config --global user.name "dczhangTW"
             git status
             node index.js
             git add .
