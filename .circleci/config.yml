@@ -28,7 +28,8 @@ jobs:
             git commit "new test.txt"
             git push
 workflows:
-  jobs:
+  main:
+    jobs:
       - update-approval:
           name: Update approval
           type: approval
