@@ -10,7 +10,7 @@ executors:
     docker:
       - image: cimg/node:lts
 jobs:
-  test-commit:
+  unit-test:
     executor: docker-node-executor
     parallelism: 2
     steps:
@@ -29,10 +29,22 @@ jobs:
           when: always
       - store_test_results:
           path: ~/junit
+  show-test:
+    executor: docker-node-executor
+    steps:
+      - checkout
+      - run:
+          command: |
+            cat ~/junit/junit.xml
 workflows:
   main:
     jobs:
-      - test-commit:
+      - unit-test:
+          name: Run test
           filters: *on-push-main
+      - show-test:
+          filters: *on-push-main
+          requires:
+            - Run test
 
           
