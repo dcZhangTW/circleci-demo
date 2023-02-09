@@ -30,7 +30,7 @@ jobs:
           command: cp ./test.txt ~/junit/
           when: always
       - run:
-        command: cat ~/junit/test.txt
+          command: cat ~/junit/test.txt
 workflows:
   main:
     jobs:
