@@ -26,8 +26,6 @@ jobs:
             npm install
             TEST=$(circleci tests glob "./__tests__/*.js" | circleci tests split --split-by=timings)
             npm run test $TEST
-          environment:
-            JEST_JUNIT_OUTPUT: junit.xml
 workflows:
   main:
     jobs:
