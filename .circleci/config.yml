@@ -28,11 +28,11 @@ jobs:
             npm run test $TEST
           environment:
             JEST_JUNIT_OUTPUT: junit.xml
-      - run:
-          command: cp junit.xml ~/junit/
-          when: always
-      - store_test_results:
-          path: ~/junit
+      # - run:
+      #     command: cp junit.xml ~/junit/
+      #     when: always
+      # - store_test_results:
+      #     path: ~/junit
 workflows:
   main:
     jobs:
