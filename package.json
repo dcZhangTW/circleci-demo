@@ -4,7 +4,7 @@
   "description": "circle ci demo",
   "main": "math.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --ci --coverage --coverageReporters=text-summary --coverageReporters=lcov --coverageReporters=clover --coverageReporters=json"
   },
   "repository": {
     "type": "git",

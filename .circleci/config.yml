@@ -27,7 +27,7 @@ jobs:
             TEST=$(circleci tests glob "./__tests__/*.js" | circleci tests split --split-by=timings)
             npm run test $TEST
       - run:
-          command: cp junit.xml ~/junit/
+          command: cp ./coverage/clover.xml ~/junit/
           when: always
       - store_test_results:
           path: ~/junit
