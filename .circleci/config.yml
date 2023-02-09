@@ -15,14 +15,10 @@ jobs:
     parallelism: 2
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "95:de:a0:5f:08:72:e0:f4:d7:a8:86:c7:64:a6:11:a0"
       - run: mkdir ~/junit
       - run:
           name: rum test
           command: |
-            node -v
             npm install
             TEST=$(circleci tests glob "./__tests__/*.js" | circleci tests split --split-by=timings)
             npm run test $TEST
