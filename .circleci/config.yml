@@ -10,8 +10,6 @@ executors:
     docker:
       - image: cimg/node:lts
 jobs:
-  install-gpg:
-    executor: 
   test-commit:
     executor: docker-node-executor
     steps:
