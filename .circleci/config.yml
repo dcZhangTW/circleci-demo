@@ -10,6 +10,8 @@ executors:
     docker:
       - image: cimg/node:lts
 jobs:
+  install-gpg:
+    executor: 
   test-commit:
     executor: docker-node-executor
     steps:
@@ -18,26 +20,14 @@ jobs:
           fingerprints:
             - "95:de:a0:5f:08:72:e0:f4:d7:a8:86:c7:64:a6:11:a0"
       - run:
-          name: test git commit
+          name: rum test
           command: |
             node -v
             npm install
-            git config --global user.email "dczhang@thoughtworks.com"
-            git config --global user.name "dczhangTW"
-            git status
-            node index.js
-            git add .
-            git commit -m "new test.txt"
-            git push
+            npm run test
 workflows:
   main:
     jobs:
       - update-approval:
-          name: Update approval
-          type: approval
           filters: *on-push-main
-      - test-commit:
-          filters: *on-push-main
-          requires:
-            - Update approval
           

@@ -2,14 +2,18 @@
   "name": "circleci-demo",
   "version": "1.0.0",
   "description": "circle ci demo",
-  "main": "index.js",
+  "main": "math.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --ci --coverage --coverageReporters=text-summary --coverageReporters=lcov --coverageReporters=clover --coverageReporters=json"
   },
   "repository": {
     "type": "git",
     "url": "git@personal.github.com:dcZhangTW/circleci-demo.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.4.2",
+    "jest-environment-jsdom": "^29.4.2"
+  }
 }
