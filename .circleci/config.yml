@@ -26,6 +26,7 @@ jobs:
 workflows:
   main:
     jobs:
-      - update-approval:
+      - test-commit:
           filters: *on-push-main
+
           
