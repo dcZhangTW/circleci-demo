@@ -1,4 +1,4 @@
-const sum = require('./math')
+const sum = require('../math')
 
 describe('test sum', () => {
     test("should return 0 when first params is not number", () => {
